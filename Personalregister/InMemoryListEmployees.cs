@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Personalregister
 {
-    internal class InMemoryListEmployees : IRepository<Employee>
+    public class InMemoryListEmployees : IRepository<Employee>
     {
         private readonly List<Employee> _items = new();
         private readonly object _sync = new();

@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using Microsoft.Extensions.DependencyInjection;
 namespace Personalregister
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            IRepository<Employee> repo = new InMemoryListEmployees();
+            var services = new ServiceCollection();
+            services.AddSingleton<IRepository<Employee>, InMemoryListEmployees>();
+
+            using var provider = services.BuildServiceProvider();
+            var repo = provider.GetRequiredService<IRepository<Employee>>();
 
             while (true)
             {

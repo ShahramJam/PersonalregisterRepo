@@ -2,7 +2,7 @@ using System;
 
 namespace Personalregister
 {
-    internal class Employee : IEquatable<Employee>
+    public class Employee : IEquatable<Employee>
     {
         public string Name { get; set; } = string.Empty;
         public decimal Salary { get; set; }
